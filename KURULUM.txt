@@ -1,0 +1,208 @@
+QR MENÜ — KURULUM VE KULLANIM KILAVUZU
+======================================
+
+Bu dosya, menüyü hiç teknik bilgisi olmayan birinin bile kurabilmesi için yazıldı.
+Adımları sırayla uygulayın; takılırsanız en alttaki "Sorun giderme" bölümüne bakın.
+
+
+İÇİNDEKİLER
+-----------
+ 1. Ne gerekir?
+ 2. cPanel ile kurulum (adım adım)
+ 3. İlk ayarlar
+ 4. Menüyü doldurma
+ 5. QR kodu basma
+ 6. Günlük kullanım
+ 7. Yedek alma ve geri yükleme
+ 8. Şifremi unuttum
+ 9. Yeni sürüme güncelleme
+10. Kendi bilgisayarında deneme
+11. Sorun giderme
+
+
+1. NE GEREKİR?
+--------------
+- Bir alan adı ve cPanel'li bir hosting (en ucuz paylaşımlı paket yeterlidir).
+- PHP 7.4 veya üzeri (8.x önerilir). cPanel > "Select PHP Version" ekranından seçilir.
+- PHP eklentileri: pdo_sqlite, gd, fileinfo, zip
+  (Aynı ekrandaki "Extensions" sekmesinde işaretli olmalı; çoğu hostingte zaten açıktır.
+   zip yalnızca yedek alma/geri yükleme için gerekir.)
+- data/ ve uploads/ klasörleri yazılabilir olmalı (755 genellikle yeterlidir).
+
+Veritabanı kurmanıza GEREK YOK. Menü, SQLite kullanır: tüm veriler data/menu.db adlı tek bir dosyada
+tutulur. MySQL hesabı açmak, kullanıcı adı/şifre girmek yoktur.
+
+
+2. cPANEL İLE KURULUM (ADIM ADIM)
+---------------------------------
+Adım 1 — Dosyaları yükleyin
+  a) Proje zip dosyasını bilgisayarınıza indirin.
+  b) cPanel'e girin > Dosya Yöneticisi (File Manager).
+  c) Menünün açılacağı klasöre gidin:
+       - Ana alan adında açılacaksa: public_html
+       - Alt klasörde açılacaksa (ör. siteadi.com/menu): public_html içinde "menu" adlı klasör oluşturun ve içine girin.
+       - Alt alan adında açılacaksa (ör. menu.siteadi.com): cPanel > Domains'ten alt alan adını oluşturun,
+         gösterdiği klasöre gidin.
+  d) Üstteki "Upload" düğmesiyle zip dosyasını yükleyin, geri dönün.
+  e) Zip dosyasına sağ tıklayın > "Extract". Açılan klasörün İÇİNDEKİ dosyalar hedef klasörde olmalı:
+     index.php, install.php, admin/, inc/, assets/, data/, uploads/ dosyalarını orada görmelisiniz.
+     (Zip bir üst klasör açtıysa içindekileri seçip bir üste taşıyın.)
+
+Adım 2 — Gizli dosyaları kontrol edin (ÖNEMLİ)
+  Dosya Yöneticisi'nin sağ üstündeki "Settings" > "Show Hidden Files (dotfiles)" kutusunu işaretleyin.
+  Ana klasörde, data/ içinde ve uploads/ içinde ".htaccess" adlı dosyaların olduğunu doğrulayın.
+  Bu dosyalar veritabanınızın ve ayarlarınızın dışarıdan indirilmesini engeller.
+  install.php bunları kendisi de kontrol eder; eksikse kurulumu durdurup uyarır.
+
+Adım 3 — Kurulum ekranını açın
+  Tarayıcıda şu adresi açın:   https://siteadi.com/install.php
+  (Alt klasör kullandıysanız: https://siteadi.com/menu/install.php)
+  Ekran önce gereksinimleri kontrol eder; hepsi yeşilse formu doldurun:
+    - Restoran adı
+    - Yönetici şifresi (en az 8 karakter; bir yere not edin)
+    - "Örnek ürünler eklensin": işaretli kalırsa birkaç kategori ve ürünle başlarsınız,
+      nasıl göründüğünü görmek için faydalıdır; sonradan silebilirsiniz.
+  "Kurulumu Tamamla" düğmesine basın. Kurulum tamamlanınca install.php kendini kilitler; tekrar açılmaz.
+
+Adım 4 — Giriş yapın
+  Yönetim paneli:   https://siteadi.com/admin/
+  Müşteri menüsü:   https://siteadi.com/
+
+HTTPS: Alan adınızın SSL sertifikası yoksa cPanel > SSL/TLS Status'ten AutoSSL çalıştırın ya da
+hosting desteğinden isteyin. QR kodu https adresiyle basmanız önerilir.
+
+
+3. İLK AYARLAR
+--------------
+Panel > Ayarlar sayfası sekmelere ayrılmıştır:
+  Genel ............ Restoran adı, slogan (TR/EN), para birimi, "Fiyatları göster" seçeneği.
+  Tema ............. 6 hazır tema (Clean, Dark, Klasik, Bauhaus, Canlı, Art Deco). Kartı seçip kaydedin.
+                     Yayınlamadan önce denemek için menü adresinin sonuna ?tema=dark gibi ekleyin.
+  İletişim ......... Telefon, WhatsApp, adres, harita bağlantısı, Instagram, Wi-Fi adı ve şifresi.
+                     Bunlar müşteri menüsündeki ⓘ (bilgi) sayfasında görünür.
+  Çalışma Saatleri . Gün gün açılış/kapanış. Bilgi sayfasında "Şu an açık / kapalı" otomatik görünür.
+                     Açılış = kapanış yazarsanız o gün 24 saat açık sayılır.
+  Görünüm .......... Logo ve (destekleyen temalarda) arka plan görseli.
+  Bilgilendirme .... Müşteriye notlar (ör. "Fiyatlara KDV dahildir") ve KVKK aydınlatma metni, TR/EN.
+  Güvenlik ve Yedek  Şifre değiştirme, yedek indirme.
+
+Örnek verileri silmek: Panel > Menü > kategori kartındaki üç nokta (⋮) > Sil. Kategori silinince
+içindeki ürünler, resimleri ve puanları da silinir.
+
+
+4. MENÜYÜ DOLDURMA
+------------------
+Panel > Menü sayfası tek ekrandır:
+  - "+ Kategori ekle" ile kategori açın (ad, İngilizce ad, açıklama, kapak fotoğrafı).
+  - Kategori kartına tıklayıp içine girin; "+ Ürün ekle" ile ürün ekleyin.
+  - Ürün formunda:
+      Ad / Açıklama / Detaylar .... İngilizce karşılıkları için yanlarındaki EN alanları (boş kalırsa Türkçesi gösterilir).
+      Fiyat ....................... Tek fiyatlı ürünler için.
+      Seçenekler .................. Porsiyon/boy gibi seçenekler (ör. Yarım 220, Tam 380). HER seçeneğe fiyat yazılır.
+                                    Seçenek varsa ürün listesinde fiyat aralığı otomatik görünür.
+      Rozetler .................... Öne çıkan, Yeni, Popüler, Acılı, Şefin önerisi.
+      Alerjen / diyet ............. Gluten, süt, fındık... ve Vegan / Vejetaryen / Glütensiz.
+      Kalori, hazırlık süresi ..... İsteğe bağlı.
+      Fotoğraflar ................. Birden fazla yükleyebilirsiniz; birini "kapak" yapın. JPG/PNG/WebP, en fazla 8 MB.
+  - Sıralama: kart köşesindeki ⠿ tutamacından sürükleyip bırakın; kendiliğinden kaydolur.
+  - Tükendi: ürün kartındaki ⋮ > "Tükendi olarak işaretle". Ürün menüde üstü çizili ve soluk görünür; aynı yerden geri alın.
+  - Gizle: kategori veya ürünü silmeden menüden kaldırmak için ⋮ > "Menüden gizle"; geri almak için "Menüde göster".
+
+
+5. QR KODU BASMA
+----------------
+Panel > QR Kod sayfası menü adresinizden QR üretir.
+  - "PNG indir" veya "SVG indir" (matbaa için SVG tercih edin) ya da doğrudan "Yazdır".
+  - Masa kartlarına, kapıya, menü standına yapıştırın.
+  - Alan adınız değişirse QR'ı yeniden basmanız gerekir (QR, adresin kendisidir).
+
+
+6. GÜNLÜK KULLANIM
+------------------
+  Genel Bakış ... Kriter ortalamaları, en beğenilen ürünler, son yorumlar.
+  Yorumlar ...... Müşterilerin "Değerlendir" sekmesinden verdiği restoran puanları (5 kriter) ve
+                  ürün sayfalarından verdiği ürün puanları. Okundu işaretleyebilir, silebilirsiniz.
+                  Yorumlar yalnızca size görünür; müşteriler birbirinin yorumunu görmez.
+  Kampanyalar ... "Bugün tatlı ikramımızdır" gibi duyurular. Popup (açılışta bir kez) veya band (üst şerit)
+                  olarak gösterilir; başlangıç/bitiş tarihi verirseniz kendiliğinden başlar ve biter.
+  İstatistik .... Günlük ziyaretçi, en çok bakılan ürünler ve kategoriler (son 7/30/90 gün).
+
+
+7. YEDEK ALMA VE GERİ YÜKLEME
+-----------------------------
+Yedek almak:
+  Panel > Ayarlar > Güvenlik ve Yedek > "Yedeği indir".
+  Tüm veriler (menu.db) ve resimler (uploads/) tek bir zip olarak iner. Düzenli olarak alın.
+  Panel açılmıyorsa elle de alabilirsiniz: data/menu.db dosyası + uploads/ klasörü.
+
+Geri yüklemek (yeni bir hostinge taşıma dahil):
+  1) Dosyaları Bölüm 2'deki gibi yükleyin.
+  2) install.php'yi açın; "Yedekten kur" alanında zip dosyasını seçin ve YENİ bir yönetici şifresi yazın
+     (yedekte şifre bulunmaz).
+  3) Mevcut bir kurulumun üzerine geri yüklemek isterseniz önce data/ içindeki
+     menu.db, menu.db-wal, menu.db-shm ve installed.lock dosyalarını silin, sonra install.php'yi açın.
+  Zip, sunucunun yükleme sınırını aşıyorsa zip'in içindeki YEDEK-OKU.txt elle geri yükleme adımlarını anlatır.
+
+
+8. ŞİFREMİ UNUTTUM
+------------------
+  1) cPanel Dosya Yöneticisi'nde data/installed.lock dosyasını silin.
+  2) data/ içinde reset.key adında yeni bir dosya oluşturun; içine kendi belirleyeceğiniz
+     EN AZ 8 KARAKTERLİK bir kod yazın (ör. benimkodum2026).
+  3) Tarayıcıda install.php'yi açın; aynı kodu ve yeni şifrenizi girin.
+  Ürünler, resimler ve yorumlar korunur; reset.key dosyası otomatik silinir.
+
+
+9. YENİ SÜRÜME GÜNCELLEME
+-------------------------
+  1) Önce yedek alın (Bölüm 7).
+  2) Yeni sürümün dosyalarını eskilerin ÜZERİNE yükleyip Extract edin (Overwrite / üzerine yaz).
+  3) data/ ve uploads/ klasörlerine dokunmayın; verileriniz oradadır.
+  4) Menüyü bir kez açın. Veritabanı yapısı değiştiyse ilk açılışta kendiliğinden güncellenir.
+  5) Tarayıcı eski görünümü gösteriyorsa Ctrl+F5 (Mac: Cmd+Shift+R) ile yenileyin.
+
+
+10. KENDİ BİLGİSAYARINDA DENEME
+-------------------------------
+PHP kuruluysa (Mac'te hazır gelir, Windows'ta php.net'ten indirilir) klasörün içinde terminal açıp:
+    php -S localhost:8080
+Sonra tarayıcıda http://localhost:8080/install.php adresini açın. Hosting gerekmez.
+
+
+11. SORUN GİDERME
+-----------------
+"Veritabanına bağlanılamadı"
+   data/ klasörünün izinlerini 755 (olmadıysa 775) yapın: sağ tık > Change Permissions.
+
+install.php "data klasörü dışarıdan erişilebilir" diyor
+   Gizli .htaccess dosyaları yüklenmemiş. Bölüm 2, Adım 2'ye bakın; zip'i "Show Hidden Files" açıkken
+   yeniden Extract edin.
+
+Sayfa 500 hatası veriyor
+   Ana klasördeki .htaccess dosyasının ilk satırını (Options -Indexes) silin. Hâlâ sürüyorsa
+   cPanel > Errors sayfasındaki mesajı hosting desteğine iletin.
+
+Resim yüklenmiyor
+   uploads/ izinlerini kontrol edin (755). PHP ayarlarında upload_max_filesize ve post_max_size en az 8M olmalı
+   (cPanel > Select PHP Version > Options).
+
+Kurulum ekranı açılmıyor / "Kurulum tamamlanmış" diyor
+   Normaldir; install.php kurulumdan sonra kilitlenir. Sıfırdan kurmak için data/ içindeki
+   menu.db, menu.db-wal, menu.db-shm ve installed.lock dosyalarını silip install.php'yi yeniden açın.
+   (Bu işlem tüm menüyü siler; önce yedek alın.)
+
+Değişiklikler müşteri menüsünde görünmüyor
+   Tarayıcı önbelleği. Ctrl+F5 / Cmd+Shift+R ile yenileyin ya da telefonda sayfayı aşağı çekerek tazeleyin.
+
+Herkes aynı anda yorum yapamıyor / "kısa süre önce gönderdiniz" uyarısı
+   Aynı cihazdan 10 dakikada 1 değerlendirme alınır; aynı internet adresinden (ör. restoran Wi-Fi'si)
+   10 dakikada 8'e kadar izin verilir. Cloudflare benzeri bir proxy kullanıyorsanız cPanel'de
+   gerçek ziyaretçi IP'sinin gösterildiğinden (mod_remoteip / mod_cloudflare) emin olun; yoksa tüm
+   müşteriler tek bir adres gibi görünür.
+
+Giriş ekranı "çok fazla deneme" diyor
+   5 hatalı şifreden sonra 15 dakika kilitlenir. Bekleyin ya da Bölüm 8 ile şifreyi sıfırlayın.
+
+İngilizce metinler görünmüyor
+   Ürün/kategori formlarındaki EN alanlarını doldurun; boş olanlar Türkçe görünür. Sabit metinler
+   Ayarlar > Genel ve Bilgilendirme sekmelerindeki EN alanlarından girilir.

@@ -1,0 +1,275 @@
+/* @theme
+   fonts: Jost:wght@400;500;600;700;800
+   theme-color: #ffffff
+*/
+
+/* =====================================================================
+   BAUHAUS - form follows function.
+   White, black and one red. Hard edges only (no radius anywhere),
+   3px rules, a strict grid. Fixed accent: red is only ever a block
+   background with white text. Rhythm comes from the red / black /
+   white block pattern (cyc-1..6), not from hue.
+   ===================================================================== */
+
+/* 1. Root ------------------------------------------------------------ */
+.t-bauhaus {
+  --accent: #d42a1e; --accent-rgb: 212, 42, 30; --on-accent: #ffffff;
+  --paper: #ffffff; --panel: #ffffff; --grey: #ececec; --ink: #141414; --muted: #4d4d4d;
+  --red: #d42a1e;
+  --rule: 3px solid var(--ink); --hair: 1.5px solid var(--ink);
+  --c: var(--red); --oc: #ffffff;
+  background: var(--paper); color: var(--ink);
+  font-family: "Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  font-size: 16px; font-weight: 400; line-height: 1.45;
+}
+.t-bauhaus ::selection { background: var(--ink); color: var(--paper); }
+.t-bauhaus a:focus-visible, .t-bauhaus button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+/* block cycle: red, black, white, red, black, white */
+.t-bauhaus .cyc-1, .t-bauhaus .cyc-4 { --c: var(--red); --oc: #ffffff; }
+.t-bauhaus .cyc-2, .t-bauhaus .cyc-5 { --c: var(--ink); --oc: #ffffff; }
+.t-bauhaus .cyc-3, .t-bauhaus .cyc-6 { --c: #ffffff; --oc: var(--ink); }
+
+/* 2. Top bar --------------------------------------------------------- */
+.t-bauhaus .topbar { background: var(--paper); border-bottom: var(--rule); padding: 0 10px; }
+.t-bauhaus .topbar .brand { font-weight: 800; font-size: 15px; letter-spacing: .07em; text-transform: uppercase; gap: 8px; }
+.t-bauhaus .topbar .brand img { height: 40px; }
+.t-bauhaus .icon-btn { width: 42px; height: 42px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 0; transition: background .15s, color .15s; }
+.t-bauhaus .topbar .right { gap: 0; }
+.t-bauhaus .topbar .right .icon-btn + .icon-btn { margin-left: -2px; }
+.t-bauhaus .lang-btn { font-weight: 800; font-size: 13px; letter-spacing: .06em; }
+.t-bauhaus .icon-btn:active { background: var(--ink); color: var(--paper); }
+
+/* 3. Campaign band + popup ------------------------------------------ */
+.t-bauhaus .promo-band { background: var(--accent); color: var(--on-accent); border-bottom: var(--rule); min-height: 44px; padding-left: 16px; }
+.t-bauhaus .promo-band-item { text-align: left; font-size: 13.5px; }
+.t-bauhaus .promo-band-item b { font-weight: 800; text-transform: uppercase; letter-spacing: .05em; margin-right: 6px; }
+.t-bauhaus .promo-band-item span { font-weight: 500; }
+.t-bauhaus .promo-band-close { width: 40px; height: 40px; }
+
+.t-bauhaus .promo { background: rgba(20, 20, 20, .82); }
+.t-bauhaus .promo-box { background: var(--panel); color: var(--ink); border: var(--rule); box-shadow: 10px 10px 0 var(--accent); animation: bauhaus-pop .3s cubic-bezier(.2, .8, .2, 1) both; }
+.t-bauhaus .promo-slide img { border-bottom: var(--rule); }
+.t-bauhaus .promo-text { text-align: left; padding: 20px 20px 22px; }
+.t-bauhaus .promo-text h2 { font-size: 28px; font-weight: 800; line-height: 1.02; letter-spacing: -.015em; }
+.t-bauhaus .promo-text h2::before { content: ""; display: block; width: 44px; height: 8px; background: var(--accent); border: 2px solid var(--ink); margin-bottom: 12px; }
+.t-bauhaus .promo-text p { color: var(--muted); font-size: 15.5px; margin-top: 10px; }
+.t-bauhaus .promo-close { top: 0; right: 0; background: var(--ink); color: var(--paper); border-color: var(--ink); width: 44px; height: 44px; }
+.t-bauhaus .promo-dots { padding: 0 20px 18px; justify-content: flex-start; gap: 6px; }
+.t-bauhaus .promo-dots i { width: 10px; height: 10px; background: var(--ink); opacity: .25; }
+.t-bauhaus .promo-dots i.active { opacity: 1; width: 26px; }
+.t-bauhaus .promo-nav { background: var(--paper); }
+
+/* 4. Home ------------------------------------------------------------ */
+.t-bauhaus .page { padding-top: 16px; }
+.t-bauhaus .hero { position: relative; overflow: hidden; text-align: left; padding: 22px 18px 20px; background: var(--panel); border: var(--rule); }
+.t-bauhaus .hero .logo-big { margin: 0 0 14px; height: 76px; position: relative; z-index: 1; }
+.t-bauhaus .hero h1 { position: relative; z-index: 1; font-size: clamp(44px, 14vw, 92px); font-weight: 800; line-height: .86; letter-spacing: -.035em; text-transform: lowercase; overflow-wrap: break-word; }
+.t-bauhaus .hero p { position: relative; z-index: 1; margin-top: 14px; font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; line-height: 1.5; }
+.t-bauhaus .hero .divider { position: relative; z-index: 1; width: 76px; height: 10px; margin: 16px 0 22px; background: var(--accent); border: 2px solid var(--ink); }
+.t-bauhaus .hero .promo-reopen { position: relative; z-index: 2; margin-top: 0; background: var(--paper); }
+
+.t-bauhaus .cat-grid { gap: 10px; margin-top: 14px; }
+.t-bauhaus .cat-card { aspect-ratio: 1 / 1; border: var(--rule); background: var(--c); animation: bauhaus-rise .45s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i, 1) * 45ms); }
+.t-bauhaus .cat-card img { transition: transform .35s ease; }
+.t-bauhaus .cat-card .idx { display: flex; align-items: center; justify-content: center; position: absolute; top: 0; left: 0; z-index: 2; width: 38px; height: 38px; background: var(--ink); color: var(--paper); font-size: 14px; font-weight: 800; letter-spacing: .02em; }
+.t-bauhaus .cat-card .label { text-align: left; padding: 9px 12px 10px; background: var(--c); color: var(--oc); border-top: var(--rule); }
+.t-bauhaus .cat-card .label-name { display: block; font-size: 15px; font-weight: 800; line-height: 1.12; letter-spacing: .04em; text-transform: uppercase; overflow-wrap: break-word; }
+.t-bauhaus .cat-card .count { margin-top: 3px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.t-bauhaus .cat-card.no-photo { background: var(--grey); }
+.t-bauhaus .cat-card .placeholder { align-items: flex-start; padding-top: 15%; font-size: 56px; font-weight: 800; line-height: 1; text-transform: uppercase; color: var(--ink); background: var(--grey); }
+
+.t-bauhaus .section-title { margin: 34px 0 0; padding-bottom: 10px; align-items: flex-end; }
+.t-bauhaus .section-title h2 { font-size: 34px; font-weight: 800; line-height: .95; letter-spacing: -.025em; text-transform: lowercase; }
+.t-bauhaus .section-title span { font-size: 11.5px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; text-align: right; padding-bottom: 3px; }
+
+/* 5. Category page --------------------------------------------------- */
+.t-bauhaus .chip-bar-wrap { background: var(--paper); border-bottom: var(--rule); }
+.t-bauhaus .page > .chip-bar-wrap:first-child { margin-top: -16px; }
+.t-bauhaus .chip-bar { gap: 0; padding: 10px 16px; }
+.t-bauhaus .chip { display: inline-flex; align-items: center; min-height: 42px; padding: 0 14px; border: 2px solid var(--ink); background: var(--paper); font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; transition: background .15s, color .15s; }
+.t-bauhaus .chip + .chip { margin-left: -2px; }
+.t-bauhaus .chip.active { background: var(--accent); color: var(--on-accent); }
+
+.t-bauhaus .cat-head { position: relative; padding: 24px 0 14px; border-bottom: var(--rule); }
+.t-bauhaus .cat-head h1 { font-size: clamp(42px, 13vw, 76px); font-weight: 800; line-height: .88; letter-spacing: -.035em; text-transform: lowercase; overflow-wrap: break-word; }
+.t-bauhaus .cat-head p { margin-top: 12px; max-width: 34em; font-size: 15.5px; color: var(--muted); }
+
+.t-bauhaus .filter-bar { margin: 14px 0 4px; gap: 8px; }
+.t-bauhaus .filter-chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: var(--hair); border-radius: 0; font-size: 14px; font-weight: 500; }
+.t-bauhaus .filter-chip.active, .t-bauhaus .filter-chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.t-bauhaus .filter-clear { display: inline-flex; align-items: center; min-height: 40px; padding: 0 6px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+
+/* Product rows: uniform square thumbnail, ruled list */
+.t-bauhaus .product-list { gap: 0; margin-top: 12px; border-top: var(--rule); }
+.t-bauhaus .cat-head + .product-list, .t-bauhaus .section-title + .product-list { margin-top: 0; border-top: 0; }
+.t-bauhaus .section-title + .product-list { border-top: var(--rule); }
+.t-bauhaus .product-row { grid-template-columns: 84px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-bottom: var(--hair); animation: bauhaus-rise .4s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i, 1) * 35ms); }
+.t-bauhaus .product-row .thumb { width: 84px; height: 84px; background: var(--grey); color: var(--ink); }
+.t-bauhaus .product-row .thumb svg { width: 34px; height: 34px; }
+.t-bauhaus .row-head { gap: 8px; }
+.t-bauhaus .row-head .name { font-size: 18.5px; font-weight: 700; line-height: 1.15; letter-spacing: -.005em; }
+.t-bauhaus .row-head .leader { display: block; height: 0; border-bottom: var(--hair); transform: translateY(-4px); opacity: .35; }
+.t-bauhaus .row-head .head-price { display: inline-block; font-size: 16px; font-weight: 800; letter-spacing: .01em; }
+.t-bauhaus .product-row .meta-price { display: none; }
+.t-bauhaus .product-row.is-featured .head-price { background: var(--accent); color: var(--on-accent); padding: 2px 7px 3px; }
+.t-bauhaus .product-row.is-featured .leader { opacity: 1; }
+.t-bauhaus .row-cat { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.t-bauhaus .product-row .desc { margin-top: 5px; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
+.t-bauhaus .product-row .meta { gap: 5px; margin-top: 9px; }
+.t-bauhaus .product-row.sold-out .thumb img { filter: grayscale(1); opacity: .7; }
+.t-bauhaus .product-row.sold-out .name, .t-bauhaus .product-row.sold-out .head-price { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 2px; }
+.t-bauhaus .product-row.sold-out .head-price { background: none; padding: 0; }
+
+.t-bauhaus .tag { padding: 3px 7px; border: var(--hair); background: var(--panel); color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: .07em; line-height: 1.35; text-transform: uppercase; }
+.t-bauhaus .tag.badge-featured { background: var(--accent); color: var(--on-accent); border-color: var(--ink); }
+.t-bauhaus .tag.badge-soldout { background: var(--ink); color: var(--paper); }
+.t-bauhaus .tag.tag-diet { background: var(--grey); }
+.t-bauhaus .tag.tag-allergen { background: #ffffff; color: var(--ink); border: 2px solid var(--red); }
+
+.t-bauhaus .empty { margin-top: 18px; padding: 40px 18px; border: var(--rule); background: var(--panel); font-size: 15px; font-weight: 600; letter-spacing: .04em; }
+.t-bauhaus .empty svg { width: 40px; height: 40px; color: var(--ink); }
+
+/* 6. Product page ---------------------------------------------------- */
+.t-bauhaus .page > .gallery-wrap:first-child { margin-top: -16px; }
+.t-bauhaus .gallery-wrap { border-bottom: var(--rule); background: var(--ink); }
+.t-bauhaus .gallery .no-image { background: var(--grey); color: var(--ink); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; gap: 14px; }
+.t-bauhaus .gallery .no-image svg { width: 132px; height: 132px; padding: 38px; background: #ffffff; border: var(--rule); }
+.t-bauhaus .gallery-dots { bottom: 14px; gap: 6px; }
+.t-bauhaus .gallery-dots i { width: 10px; height: 10px; background: #ffffff; opacity: 1; border: 2px solid var(--ink); }
+.t-bauhaus .gallery-dots i.active { width: 28px; background: var(--accent); }
+.t-bauhaus .gallery-counter { top: 0; right: 0; padding: 7px 11px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; letter-spacing: .1em; }
+.t-bauhaus .gallery-nav { background: var(--paper); }
+
+.t-bauhaus .product-detail { padding-top: 20px; }
+.t-bauhaus .product-detail .cat-link { display: inline-flex; align-items: center; min-height: 40px; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.t-bauhaus .product-detail .cat-link::before { content: ""; width: 22px; height: 3px; background: var(--ink); }
+.t-bauhaus .product-detail .head { display: block; }
+.t-bauhaus .product-detail .head h1 { font-size: clamp(38px, 11.5vw, 64px); font-weight: 800; line-height: .92; letter-spacing: -.03em; text-transform: lowercase; overflow-wrap: break-word; }
+.t-bauhaus .product-detail .head .price { display: inline-block; margin-top: 14px; padding: 6px 12px 7px; background: var(--accent); color: var(--on-accent); border: 2px solid var(--ink); font-size: 21px; font-weight: 800; letter-spacing: .01em; }
+.t-bauhaus .rating-line { display: flex; font-size: 14px; color: var(--muted); margin-top: 12px !important; }
+.t-bauhaus .rating-line b { color: var(--ink); font-weight: 800; }
+.t-bauhaus .star { background: var(--ink); }
+.t-bauhaus .star.half { background: linear-gradient(90deg, var(--ink) 50%, rgba(20, 20, 20, .25) 50%); }
+.t-bauhaus .product-facts { gap: 0; margin-top: 14px; border: var(--hair); width: fit-content; max-width: 100%; }
+.t-bauhaus .product-facts span { padding: 6px 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.t-bauhaus .product-facts span + span { border-left: var(--hair); }
+.t-bauhaus .soldout-note { padding: 12px 14px; background: var(--ink); color: var(--paper); border-left: 12px solid var(--red); font-size: 14px; font-weight: 600; letter-spacing: .03em; }
+.t-bauhaus .product-detail .desc { font-size: 17.5px; line-height: 1.5; max-width: 38em; }
+.t-bauhaus .product-detail .details { margin-top: 22px; padding-top: 14px; border-top: var(--rule); }
+.t-bauhaus .product-detail .details h3 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.t-bauhaus .product-detail .details p { color: var(--muted); max-width: 38em; }
+.t-bauhaus .variant-line { padding: 11px 0; border-bottom: var(--hair); font-size: 16.5px; font-weight: 500; }
+.t-bauhaus .variant-line:last-child { border-bottom: 0; padding-bottom: 2px; }
+.t-bauhaus .variant-line .price { font-weight: 800; }
+.t-bauhaus .product-detail .allergens .tags { margin-top: 4px; }
+.t-bauhaus .allergen-note { font-size: 13.5px; }
+.t-bauhaus .cta-row { margin-top: 26px; gap: 10px; }
+.t-bauhaus .cta-row .btn { flex: 1 1 100%; }
+
+/* 7. Buttons, forms, review card ------------------------------------ */
+.t-bauhaus .btn { min-height: 48px; padding: 11px 18px; border: 2px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font-size: 13.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; line-height: 1.2; text-align: center; transition: background .15s, color .15s, transform .1s; }
+.t-bauhaus .btn-primary { background: var(--accent); color: var(--on-accent); }
+.t-bauhaus .btn:active { transform: translate(2px, 2px); background: var(--ink); color: var(--paper); }
+
+.t-bauhaus input[type=text], .t-bauhaus input[type=email], .t-bauhaus textarea, .t-bauhaus select { min-height: 48px; padding: 11px 13px; background: #ffffff; color: var(--ink); border: 2px solid var(--ink); font-size: 16px; transition: box-shadow .15s; }
+.t-bauhaus input[type=text]:focus, .t-bauhaus input[type=email]:focus, .t-bauhaus textarea:focus, .t-bauhaus select:focus { box-shadow: inset 0 -5px 0 var(--ink); }
+.t-bauhaus input::placeholder, .t-bauhaus textarea::placeholder { color: #6b6b6b; opacity: 1; }
+.t-bauhaus select { padding-right: 40px; background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpolygon points='0,0 12,0 6,8' fill='%23141414'/%3E%3C/svg%3E") right 14px center / 12px 8px no-repeat; }
+.t-bauhaus .form-group label { font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.t-bauhaus .form-group label span { letter-spacing: .04em; text-transform: none; font-size: 13px; }
+
+.t-bauhaus .card { position: relative; background: var(--panel); border: var(--rule); padding: 24px 18px 22px; }
+.t-bauhaus .card h1 { padding-right: 46px; font-size: clamp(36px, 10.5vw, 54px); font-weight: 800; line-height: .92; letter-spacing: -.03em; text-transform: lowercase; }
+.t-bauhaus .card .lead { margin: 12px 0 20px; color: var(--muted); font-size: 15.5px; }
+.t-bauhaus .criteria-list { gap: 0; border-top: var(--rule); border-bottom: var(--rule); margin-bottom: 22px; }
+.t-bauhaus .criterion { padding: 10px 0; min-height: 54px; }
+.t-bauhaus .criterion + .criterion { border-top: var(--hair); }
+.t-bauhaus .criterion .cname { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.t-bauhaus .star-input { gap: 3px; flex: 0 0 auto; }
+.t-bauhaus .star-input label { width: 32px; height: 40px; background: var(--ink); }
+.t-bauhaus .star-input label:hover, .t-bauhaus .star-input label:hover ~ label, .t-bauhaus .star-input input:checked ~ label { background: var(--red); }
+.t-bauhaus .alert { border: 2px solid var(--ink); border-left-width: 12px; padding: 12px 14px; background: #ffffff; font-size: 14.5px; font-weight: 500; }
+.t-bauhaus .alert-error { border-left-color: var(--red); }
+.t-bauhaus .alert-success { border-left-color: var(--ink); }
+.t-bauhaus .alert-info { border-left-color: #8a8a8a; }
+.t-bauhaus .thanks { padding: 36px 8px 20px; text-align: left; }
+.t-bauhaus .thanks .big { line-height: 1; }
+.t-bauhaus .thanks h1, .t-bauhaus .thanks h2 { font-size: 40px; font-weight: 800; line-height: .95; letter-spacing: -.03em; text-transform: lowercase; padding-right: 0; }
+.t-bauhaus .thanks p { margin: 10px 0 18px; color: var(--muted); }
+.t-bauhaus .form-note { text-align: left; font-size: 13px; color: var(--muted); }
+.t-bauhaus .form-note a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
+
+/* 8. Search ---------------------------------------------------------- */
+.t-bauhaus .search-box { gap: 0; margin: 4px 0 6px; }
+.t-bauhaus .search-box .btn { margin-left: -2px; flex: 0 0 auto; }
+
+/* 9. Business + legal pages ----------------------------------------- */
+.t-bauhaus .info-top { text-align: left; padding-top: 4px; }
+.t-bauhaus .open-status { padding: 7px 12px; border: 2px solid var(--ink); border-bottom: 0; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.t-bauhaus .open-status.is-open { background: var(--ink); color: #ffffff; }
+.t-bauhaus .open-status.is-closed { background: var(--red); color: #ffffff; }
+.t-bauhaus .open-status i { border-radius: 0; width: 9px; height: 9px; flex-basis: 9px; }
+.t-bauhaus .open-status.is-open i { background: #ffffff; }
+.t-bauhaus .info-top .hero { padding: 22px 18px 22px; }
+.t-bauhaus .info-top .hero p { max-width: none; }
+.t-bauhaus .info-actions { gap: 0; margin-top: 12px; }
+.t-bauhaus .info-actions .btn + .btn { margin-left: -2px; }
+.t-bauhaus .info-section { margin-top: 36px; }
+.t-bauhaus .info-section h2 { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: var(--rule); font-size: 30px; font-weight: 800; line-height: 1; letter-spacing: -.025em; text-transform: lowercase; }
+.t-bauhaus .info-line { padding: 13px 0; border-bottom: var(--hair); min-height: 50px; }
+.t-bauhaus .info-line span { font-size: 12px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
+.t-bauhaus .info-line b { font-weight: 600; font-size: 16px; }
+.t-bauhaus .info-line b a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.t-bauhaus .info-line.today { margin: 0 -10px; padding-left: 10px; padding-right: 10px; background: var(--ink); color: #ffffff; border-bottom-color: var(--ink); }
+.t-bauhaus .info-line.today span { color: #ffffff; }
+.t-bauhaus .info-line.today b { font-weight: 800; }
+.t-bauhaus .wifi-pass { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 15px; letter-spacing: .02em; }
+.t-bauhaus .copy-btn { min-height: 40px; padding: 0 12px; border: 2px solid var(--ink); border-radius: 0; background: var(--ink); color: var(--paper); font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+.t-bauhaus .legal-page { padding-top: 14px; }
+.t-bauhaus .legal-page h1 { font-size: clamp(40px, 12vw, 64px); font-weight: 800; line-height: .9; letter-spacing: -.035em; text-transform: lowercase; overflow-wrap: break-word; padding-bottom: 16px; border-bottom: var(--rule); }
+.t-bauhaus .legal-page h2 { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13.5px; font-weight: 800; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; }
+.t-bauhaus .info-text { font-size: 16px; line-height: 1.6; color: #222222; }
+
+/* 10. Bottom bar ----------------------------------------------------- */
+.t-bauhaus .bottombar { background: var(--ink); color: var(--paper); border-top: var(--rule); }
+.t-bauhaus .bottombar a { gap: 5px; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background .15s, color .15s; }
+.t-bauhaus .bottombar a + a { border-left: 1.5px solid rgba(255, 255, 255, .28); }
+.t-bauhaus .bottombar a.active { background: var(--accent); color: var(--on-accent); }
+
+/* Hover (pointer devices only) -------------------------------------- */
+@media (hover: hover) {
+  .t-bauhaus .icon-btn:hover, .t-bauhaus .btn:hover, .t-bauhaus .chip:hover, .t-bauhaus .filter-chip:hover { background: var(--ink); color: var(--paper); }
+  .t-bauhaus .chip.active:hover { background: var(--accent); color: var(--on-accent); }
+  .t-bauhaus .promo-close:hover, .t-bauhaus .copy-btn:hover { background: var(--paper); color: var(--ink); }
+  .t-bauhaus .cat-card:hover img { transform: scale(1.05); }
+  .t-bauhaus .product-row:hover .name { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .t-bauhaus .bottombar a:hover { background: var(--paper); color: var(--ink); }
+  .t-bauhaus .bottombar a.active:hover { background: var(--accent); color: var(--on-accent); }
+}
+
+/* Wide ---------------------------------------------------------------- */
+@media (min-width: 760px) {
+  .t-bauhaus .page { padding-top: 24px; }
+  .t-bauhaus .page > .chip-bar-wrap:first-child { margin-top: -24px; }
+  .t-bauhaus .page > .gallery-wrap:first-child { margin-top: 0; }
+  .t-bauhaus .gallery-wrap { border: var(--rule); }
+  .t-bauhaus .hero { padding: 40px 36px 34px; }
+  .t-bauhaus .hero h1 { font-size: clamp(84px, 10vw, 128px); max-width: 70%; }
+  .t-bauhaus .hero p { font-size: 14px; }
+  .t-bauhaus .hero .divider { margin-bottom: 26px; width: 120px; }
+  .t-bauhaus .info-top .hero h1 { font-size: 64px; max-width: none; }
+  .t-bauhaus .cat-grid { gap: 14px; margin-top: 18px; }
+  .t-bauhaus .cat-card .label-name { font-size: 17px; }
+  .t-bauhaus .cat-card .placeholder { font-size: 84px; }
+  .t-bauhaus .product-list { gap: 0 32px; }
+  .t-bauhaus .section-title h2 { font-size: 44px; }
+  .t-bauhaus .cta-row .btn { flex: 0 1 auto; }
+  .t-bauhaus .chip-bar { padding-left: 0; padding-right: 0; }
+}
+
+/* Motion -------------------------------------------------------------- */
+@keyframes bauhaus-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes bauhaus-slide { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes bauhaus-pop { from { transform: translate(-10px, -10px); } to { opacity: 1; transform: none; } }

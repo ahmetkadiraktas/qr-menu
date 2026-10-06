@@ -1,0 +1,18 @@
+# Kurulum verisi — her kurulumda yeniden olusur
+data/*
+!data/.htaccess
+!data/index.html
+
+# Yuklenen resimler — yalnizca klasor yapisi ve koruma dosyalari repoda
+uploads/**
+!uploads/.htaccess
+!uploads/index.html
+!uploads/*/
+!uploads/*/index.html
+
+# Sistem / editor
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/

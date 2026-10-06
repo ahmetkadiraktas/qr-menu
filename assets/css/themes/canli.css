@@ -1,0 +1,497 @@
+/* @theme
+   fonts: Fredoka:wght@500;600;700|Nunito:wght@500;700;800
+   theme-color: #ffd95a
+*/
+
+/* =====================================================================
+   CANLI - renkli, yuvarlak, oyuncu. Sabit palet.
+   Dil: murekkep konturlu "cikartma" kartlar, sert ofset golge, pastel
+   dongu renkleri (cyc-1..6), tombul basliklar, yayli hareket.
+   ===================================================================== */
+
+/* ---------- 1. Kok ---------- */
+.t-canli {
+  --accent: #ff6fa5; --accent-rgb: 255, 111, 165; --on-accent: #2d2440;
+  --ink: #2d2440; --muted: #655c7a; --paper: #fff8ec; --card: #ffffff;
+  --sun: #ffd95a; --mint: #c4f1da; --sky: #c6e6ff; --lilac: #ddd2ff; --peach: #ffd9bc; --pink: #ffd0e1;
+  --c: #ffd0e1; --cd: #ff8fb8;
+  --line: 2.5px solid var(--ink);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --display: "Fredoka", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+  --bottombar-h: 62px;
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15.5px; font-weight: 500; color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle, rgba(255, 111, 165, .16) 3px, transparent 3.5px),
+    radial-gradient(circle, rgba(109, 184, 245, .18) 3px, transparent 3.5px),
+    radial-gradient(circle, rgba(255, 200, 61, .22) 2.5px, transparent 3px);
+  background-size: 64px 64px, 64px 64px, 64px 64px;
+  background-position: 0 0, 32px 22px, 12px 44px;
+}
+body.t-canli { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)); }
+.t-canli h1, .t-canli h2, .t-canli h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; letter-spacing: -.005em; }
+.t-canli a:focus-visible, .t-canli button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* dongu renkleri */
+.t-canli .cyc-1 { --c: #ffd0e1; --cd: #ff8fb8; }
+.t-canli .cyc-2 { --c: #ffeaa0; --cd: #ffc83d; }
+.t-canli .cyc-3 { --c: #c4f1da; --cd: #5fd3a0; }
+.t-canli .cyc-4 { --c: #c6e6ff; --cd: #6db8f5; }
+.t-canli .cyc-5 { --c: #ddd2ff; --cd: #a78bfa; }
+.t-canli .cyc-6 { --c: #ffd9bc; --cd: #ff9f68; }
+
+/* ---------- 2. Ust bar ---------- */
+.t-canli .topbar { background: var(--sun); color: var(--ink); }
+.t-canli .topbar::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 10px; pointer-events: none;
+  background: radial-gradient(circle at 10px 0, var(--sun) 7px, var(--ink) 7.5px, var(--ink) 9.5px, transparent 10px) 0 0 / 20px 10px repeat-x;
+}
+.t-canli .topbar .brand { font-family: var(--display); font-weight: 700; font-size: 21px; line-height: 1.1; }
+.t-canli .topbar .brand img { height: 44px; }
+.t-canli .icon-btn {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--card); border: var(--line);
+  box-shadow: 2px 2px 0 var(--ink); color: var(--ink);
+  transition: transform .25s var(--spring), box-shadow .15s ease;
+}
+.t-canli .icon-btn:hover { transform: translateY(-2px) rotate(-6deg); }
+.t-canli .icon-btn:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+.t-canli .topbar .left .icon-btn { margin-left: 4px; }
+.t-canli .lang-btn { font-family: var(--display); font-weight: 600; font-size: 13.5px; background: var(--pink); }
+
+/* ---------- 3. Kampanya seridi + popup ---------- */
+.t-canli .promo-band {
+  background: var(--accent); color: var(--on-accent); padding-top: 12px; padding-bottom: 4px; min-height: 52px;
+  border-bottom: var(--line); font-size: 14px;
+}
+.t-canli .promo-band-item b { font-family: var(--display); font-weight: 600; }
+.t-canli .promo-band-item span { opacity: .9; }
+.t-canli .promo-band-close { width: 40px; height: 40px; border-radius: 50%; transition: transform .25s var(--spring); }
+.t-canli .promo-band-close:hover { transform: rotate(90deg); }
+
+.t-canli .promo { background: rgba(45, 36, 64, .72); }
+.t-canli .promo-box {
+  background: var(--paper); color: var(--ink); border: 3px solid var(--ink); border-radius: 32px;
+  box-shadow: 7px 7px 0 var(--accent); animation: canli-pop .5s var(--spring) both;
+}
+.t-canli .promo-slide img { border-bottom: 3px solid var(--ink); }
+.t-canli .promo-text h2 { font-size: 24px; }
+.t-canli .promo-text p { color: var(--muted); font-weight: 700; }
+.t-canli .promo-close { top: 12px; right: 12px; }
+.t-canli .promo-dots { padding: 2px 0 18px; }
+.t-canli .promo-dots i { width: 10px; height: 10px; border-radius: 999px; background: var(--ink); opacity: .25; transition: width .3s var(--spring); }
+.t-canli .promo-dots i.active { width: 24px; background: var(--accent); opacity: 1; box-shadow: inset 0 0 0 2px var(--ink); }
+.t-canli .promo-nav.prev { left: 12px; }
+.t-canli .promo-nav.next { right: 12px; }
+
+/* ---------- 4. Ana sayfa ---------- */
+.t-canli .hero { position: relative; padding: 30px 8px 24px; }
+.t-canli .hero .logo-big { animation: canli-pop .6s var(--spring) both; }
+.t-canli .hero h1 {
+  font-weight: 700; font-size: clamp(34px, 10.5vw, 54px); line-height: 1.05;
+  text-shadow: 3px 3px 0 var(--sun), 3px 3px 0 var(--sun);
+  animation: canli-pop .6s var(--spring) both;
+}
+.t-canli .hero p {
+  display: inline-block; margin-top: 14px; padding: 6px 16px; background: var(--card); border: var(--line);
+  border-radius: 999px; box-shadow: 3px 3px 0 var(--cd, #ff8fb8); font-weight: 800; font-size: 14.5px;
+  rotate: -2deg; animation: canli-pop .6s var(--spring) .1s both;
+}
+.t-canli .hero .divider {
+  width: 132px; height: 14px; margin: 20px auto 0;
+  background:
+    radial-gradient(circle, #ff8fb8 6px, transparent 6.5px) 0 0 / 14px 14px no-repeat,
+    radial-gradient(circle, #ffc83d 6px, transparent 6.5px) 23.6px 0 / 14px 14px no-repeat,
+    radial-gradient(circle, #5fd3a0 6px, transparent 6.5px) 47.2px 0 / 14px 14px no-repeat,
+    radial-gradient(circle, #6db8f5 6px, transparent 6.5px) 70.8px 0 / 14px 14px no-repeat,
+    radial-gradient(circle, #a78bfa 6px, transparent 6.5px) 94.4px 0 / 14px 14px no-repeat,
+    radial-gradient(circle, #ff9f68 6px, transparent 6.5px) 118px 0 / 14px 14px no-repeat;
+}
+.t-canli .hero .ornament { display: block; position: absolute; inset: 0; pointer-events: none; }
+.t-canli .hero .ornament::before, .t-canli .hero .ornament::after {
+  content: ""; position: absolute; background-repeat: no-repeat; background-size: contain;
+  animation: canli-bob 3.2s ease-in-out infinite;
+}
+.t-canli .hero .ornament::before {
+  width: 32px; height: 32px; left: 2px; top: 2px; rotate: -14deg;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 5.9 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.3l6.6-.9z' fill='%23ffd95a' stroke='%232d2440' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.t-canli .hero .ornament::after {
+  width: 28px; height: 28px; right: 4px; top: 6px; rotate: 12deg; animation-delay: -1.6s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 20.5S3.5 15.4 3.5 9.3A4.6 4.6 0 0 1 12 6.9a4.6 4.6 0 0 1 8.5 2.4c0 6.1-8.5 11.2-8.5 11.2z' fill='%23ff8fb8' stroke='%232d2440' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.t-canli .promo-reopen { margin-top: 22px; background: var(--sun); animation: canli-wiggle 4s ease-in-out 1.2s infinite; }
+
+.t-canli .cat-grid { gap: 18px 14px; padding: 4px 2px; }
+.t-canli .cat-card {
+  aspect-ratio: auto; overflow: visible; display: flex; flex-direction: column; padding: 8px 8px 12px;
+  background: var(--c); border: var(--line); border-radius: 26px; box-shadow: 4px 4px 0 var(--ink);
+  rotate: -1.2deg;
+  animation: canli-pop .55s var(--spring) both; animation-delay: calc(min(var(--i, 1), 12) * 55ms);
+  transition: transform .3s var(--spring), box-shadow .15s ease, rotate .3s var(--spring);
+}
+.t-canli .cat-card.cyc-2, .t-canli .cat-card.cyc-4, .t-canli .cat-card.cyc-6 { rotate: 1.2deg; }
+.t-canli .cat-card:hover { transform: translateY(-4px) scale(1.02); rotate: 0deg; box-shadow: 6px 8px 0 var(--ink); }
+.t-canli .cat-card:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.t-canli .cat-card img, .t-canli .cat-card .placeholder {
+  width: 100%; height: auto; aspect-ratio: 4 / 3; border: var(--line); border-radius: 18px; background-color: var(--card);
+}
+.t-canli .cat-card .placeholder {
+  font-family: var(--display); font-weight: 700; font-size: 58px; line-height: 1; color: var(--ink);
+  text-shadow: 3px 3px 0 var(--cd);
+  background-image: radial-gradient(circle, var(--c) 4px, transparent 4.5px); background-size: 20px 20px;
+}
+.t-canli .cat-card .label { position: static; padding: 9px 2px 0; }
+.t-canli .cat-card .label-name { display: block; font-family: var(--display); font-weight: 600; font-size: 17px; line-height: 1.15; overflow-wrap: anywhere; }
+.t-canli .cat-card .count {
+  display: inline-block; margin-top: 6px; padding: 1px 10px; background: var(--card); border: 2px solid var(--ink);
+  border-radius: 999px; font-size: 12px; font-weight: 800;
+}
+.t-canli .cat-card .idx {
+  display: flex; align-items: center; justify-content: center; position: absolute; top: -10px; left: -7px; z-index: 2;
+  width: 32px; height: 32px; border-radius: 50%; background: var(--card); border: var(--line);
+  font-family: var(--display); font-weight: 600; font-size: 13px; rotate: -12deg; box-shadow: 2px 2px 0 var(--cd);
+}
+
+.t-canli .section-title { margin: 34px 0 14px; align-items: center; }
+.t-canli .section-title h2 {
+  font-size: 25px; padding: 0 6px;
+  background: linear-gradient(transparent 58%, var(--sun) 58%, var(--sun) 92%, transparent 92%);
+}
+.t-canli .section-title span {
+  flex: 0 0 auto; padding: 3px 12px; background: var(--mint); border: 2px solid var(--ink); border-radius: 999px;
+  font-size: 12.5px; font-weight: 800; rotate: 2deg;
+}
+
+/* ---------- 5. Kategori sayfasi ---------- */
+.t-canli .chip-bar-wrap { background: var(--paper); border-bottom: 2.5px dashed rgba(45, 36, 64, .28); }
+.t-canli .chip-bar { padding: 18px 16px 12px; gap: 10px; }
+.t-canli .chip {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 6px 16px; background: var(--card);
+  border: var(--line); border-radius: 999px; font-family: var(--display); font-weight: 500; font-size: 15px;
+  box-shadow: 2px 2px 0 var(--ink); transition: transform .25s var(--spring), background-color .2s ease;
+}
+.t-canli .chip:hover { transform: translateY(-2px); background: var(--sky); }
+.t-canli .chip.active { background: var(--accent); color: var(--on-accent); font-weight: 600; rotate: -2deg; box-shadow: 3px 3px 0 var(--ink); }
+
+.t-canli .cat-head { padding: 24px 0 6px; }
+.t-canli .cat-head .ornament {
+  display: block; width: 78px; height: 14px; margin-bottom: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 78 14'%3E%3Cpath d='M3 9c6-9 12 9 18 0s12 9 18 0 12 9 18 0 12 9 18 0' fill='none' stroke='%23ff6fa5' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center / contain;
+}
+.t-canli .cat-head h1 { font-weight: 700; font-size: clamp(30px, 8.6vw, 42px); text-shadow: 2.5px 2.5px 0 var(--sky); }
+.t-canli .cat-head p { margin-top: 8px; color: var(--muted); font-weight: 700; }
+
+.t-canli .filter-bar { margin: 14px 0 18px; }
+.t-canli .filter-chip {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 5px 14px; background: rgba(255, 255, 255, .8);
+  border: 2px dashed var(--ink); border-radius: 999px; font-size: 13.5px; font-weight: 800;
+  transition: transform .25s var(--spring), background-color .2s ease;
+}
+.t-canli .filter-chip:hover { transform: scale(1.05); }
+.t-canli .filter-chip.active { background: var(--mint); border-style: solid; box-shadow: 2px 2px 0 var(--ink); }
+.t-canli .filter-clear { display: inline-flex; align-items: center; min-height: 40px; padding: 0 6px; font-weight: 800; font-size: 13.5px; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+
+.t-canli .product-list { gap: 16px; padding: 2px 4px 4px 0; }
+.t-canli .product-row {
+  position: relative; grid-template-columns: 92px minmax(0, 1fr); gap: 14px; padding: 12px 14px 12px 12px;
+  background: var(--card); border: var(--line); border-radius: 26px; box-shadow: 5px 5px 0 var(--cd);
+  animation: canli-rise .5s var(--spring) both; animation-delay: calc(min(var(--i, 1), 12) * 50ms);
+  transition: transform .3s var(--spring), box-shadow .15s ease;
+}
+.t-canli .product-row:hover { transform: translateY(-3px) rotate(-.6deg); box-shadow: 7px 8px 0 var(--cd); }
+.t-canli .product-row:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--cd); }
+.t-canli .product-row .thumb {
+  width: 92px; height: 92px; background: var(--c); border: var(--line); color: var(--ink);
+  border-radius: 44% 56% 52% 48% / 52% 46% 54% 48%; rotate: -3deg;
+  transition: rotate .35s var(--spring), border-radius .35s ease;
+}
+.t-canli .product-row.cyc-2 .thumb, .t-canli .product-row.cyc-4 .thumb, .t-canli .product-row.cyc-6 .thumb {
+  rotate: 3deg; border-radius: 55% 45% 47% 53% / 46% 54% 46% 54%;
+}
+.t-canli .product-row:hover .thumb { rotate: 4deg; border-radius: 50%; }
+.t-canli .product-row .thumb svg { width: 34px; height: 34px; }
+.t-canli .row-head .name { font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
+.t-canli .row-cat { font-size: 12px; font-weight: 800; color: var(--muted); }
+.t-canli .product-row .desc { margin-top: 3px; font-size: 13.5px; line-height: 1.4; color: var(--muted); font-weight: 700; }
+.t-canli .product-row .meta { gap: 6px; margin-top: 9px; }
+.t-canli .product-row .meta-price {
+  padding: 1px 11px; margin-right: 2px; background: var(--c); border: 2px solid var(--ink); border-radius: 999px;
+  font-family: var(--display); font-weight: 600; font-size: 16px; rotate: -2deg;
+}
+.t-canli .price { font-family: var(--display); font-weight: 600; }
+
+.t-canli .tag {
+  padding: 2px 9px; background: var(--paper); border: 1.5px solid var(--ink); border-radius: 999px;
+  font-size: 11.5px; font-weight: 800; line-height: 1.5; white-space: nowrap;
+}
+.t-canli .tag.badge-featured { background: var(--sun); }
+.t-canli .tag.tag-badge { background: var(--card); }
+.t-canli .tag.tag-diet { background: var(--mint); }
+.t-canli .tag.tag-allergen { background: var(--peach); }
+.t-canli .tag.badge-soldout { background: var(--ink); color: #fff; rotate: -3deg; letter-spacing: .03em; }
+
+.t-canli .product-row.is-featured::after {
+  content: ""; position: absolute; top: -13px; right: -7px; width: 34px; height: 34px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 5.9 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.3l6.6-.9z' fill='%23ffd95a' stroke='%232d2440' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: canli-wiggle 3.4s ease-in-out infinite; animation-delay: calc(var(--i, 1) * -.5s);
+}
+.t-canli .product-row.sold-out { background: #f3eee6; border-style: dashed; box-shadow: none; }
+.t-canli .product-row.sold-out .thumb { background: #e6dfd4; }
+.t-canli .product-row.sold-out .thumb img { filter: grayscale(1); opacity: .7; }
+.t-canli .product-row.sold-out .name { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: rgba(45, 36, 64, .45); }
+.t-canli .product-row.sold-out .meta-price { background: transparent; }
+
+.t-canli .empty {
+  margin-top: 18px; padding: 42px 18px; background: rgba(255, 255, 255, .75); border: 2.5px dashed var(--ink);
+  border-radius: 28px; font-family: var(--display); font-weight: 500; font-size: 17px; color: var(--ink);
+}
+.t-canli .empty svg {
+  width: 72px; height: 72px; padding: 14px; margin-bottom: 14px; background: var(--lilac); border: var(--line);
+  border-radius: 50%; box-shadow: 3px 3px 0 var(--ink); animation: canli-bob 3s ease-in-out infinite;
+}
+
+/* ---------- 6. Urun sayfasi ---------- */
+.t-canli .gallery-wrap {
+  margin: 6px 4px 0 0; overflow: hidden; background: var(--pink); border: 3px solid var(--ink);
+  border-radius: 30px; box-shadow: 5px 5px 0 var(--accent); animation: canli-pop .5s var(--spring) both;
+}
+.t-canli .gallery .no-image {
+  color: var(--ink); background-color: var(--sky);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, .75) 6px, transparent 6.5px); background-size: 30px 30px;
+  font-family: var(--display); font-weight: 600; font-size: 20px; text-align: center; padding: 16px;
+}
+.t-canli .gallery .no-image svg {
+  width: 84px; height: 84px; padding: 18px; background: var(--card); border: var(--line); border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.t-canli .gallery-dots {
+  left: 50%; right: auto; transform: translateX(-50%); padding: 6px 10px; background: var(--card);
+  border: 2px solid var(--ink); border-radius: 999px; color: var(--ink);
+}
+.t-canli .gallery-dots i { width: 8px; height: 8px; border-radius: 999px; opacity: .25; transition: width .3s var(--spring); }
+.t-canli .gallery-dots i.active { width: 20px; background: var(--accent); opacity: 1; }
+.t-canli .gallery-counter {
+  padding: 2px 12px; background: var(--sun); border: 2px solid var(--ink); border-radius: 999px;
+  font-family: var(--display); font-weight: 600; font-size: 13.5px; rotate: 3deg;
+}
+
+.t-canli .product-detail { padding: 24px 0 26px; }
+.t-canli .product-detail .cat-link {
+  padding: 4px 14px; min-height: 32px; background: var(--lilac); border: 2px solid var(--ink); border-radius: 999px;
+  font-size: 12.5px; font-weight: 800; letter-spacing: .02em; transition: transform .25s var(--spring);
+}
+.t-canli .product-detail .cat-link::before { content: "\2190\00a0"; }
+.t-canli .product-detail .cat-link:hover { transform: translateX(-3px); }
+.t-canli .product-detail .head { margin-top: 14px; align-items: center; }
+.t-canli .product-detail .head h1 { font-weight: 700; font-size: clamp(28px, 8vw, 40px); overflow-wrap: anywhere; min-width: 0; }
+.t-canli .product-detail .head .price {
+  flex: 0 0 auto; padding: 5px 14px; margin-right: 4px; background: var(--sun); border: var(--line); border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--ink); font-size: 19px; rotate: 3deg;
+}
+.t-canli .rating-line { font-size: 13.5px; font-weight: 700; color: var(--muted); }
+.t-canli .rating-line b { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 15px; }
+.t-canli .star { background: var(--ink); opacity: .2; }
+.t-canli .star.full { background: #ffb400; opacity: 1; }
+.t-canli .star.half { background: linear-gradient(90deg, #ffb400 50%, rgba(45, 36, 64, .2) 50%); opacity: 1; }
+.t-canli .product-detail .tags .tag { padding: 4px 12px; font-size: 12.5px; border-width: 2px; }
+.t-canli .product-facts { gap: 8px; margin-top: 12px; }
+.t-canli .product-facts span {
+  padding: 4px 12px; background: var(--card); border: 2px dashed var(--ink); border-radius: 999px; font-size: 13px; font-weight: 800;
+}
+.t-canli .soldout-note {
+  padding: 12px 16px; background: var(--pink); border: 2.5px dashed var(--ink); border-radius: 18px; font-weight: 800;
+}
+.t-canli .product-detail .desc { font-size: 16.5px; line-height: 1.6; }
+.t-canli .product-detail .details {
+  margin: 20px 4px 0 0; padding: 16px 18px; background: var(--card); border: var(--line); border-radius: 24px;
+  box-shadow: 4px 4px 0 var(--sky);
+}
+.t-canli .product-detail .details h3 { font-size: 18px; margin-bottom: 8px; }
+.t-canli .product-detail .details p { color: var(--ink); }
+.t-canli .product-detail .details p:last-child { margin-bottom: 0; }
+.t-canli .product-detail .variants { box-shadow: 4px 4px 0 #ffc83d; }
+.t-canli .variant-line { padding: 10px 0; border-top: 2px dotted rgba(45, 36, 64, .3); font-weight: 800; }
+.t-canli .variants h3 + .variant-line { border-top: 0; padding-top: 2px; }
+.t-canli .variant-line:last-child { padding-bottom: 2px; }
+.t-canli .variant-line .price { padding: 1px 12px; background: #ffeaa0; border: 2px solid var(--ink); border-radius: 999px; font-size: 15.5px; }
+.t-canli .product-detail .allergens { background: #fff3e8; box-shadow: 4px 4px 0 #ff9f68; }
+.t-canli .product-detail .allergens .tags { margin-top: 4px; }
+.t-canli .allergen-note { font-size: 13px; font-weight: 700; color: var(--muted); }
+.t-canli .cta-row { gap: 12px; margin-top: 26px; padding-right: 4px; }
+.t-canli .cta-row .btn { flex: 1 1 auto; }
+
+/* ---------- 7. Dugmeler, formlar, degerlendirme ---------- */
+.t-canli .btn {
+  min-height: 46px; padding: 10px 22px; background: var(--card); color: var(--ink); border: var(--line);
+  border-radius: 999px; box-shadow: 3px 3px 0 var(--ink); font-family: var(--display); font-weight: 600; font-size: 16px;
+  line-height: 1.2; text-align: center; transition: transform .25s var(--spring), box-shadow .12s ease, background-color .2s ease;
+}
+.t-canli .btn:hover { transform: translate(-1px, -2px); box-shadow: 5px 6px 0 var(--ink); }
+.t-canli .btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+.t-canli .btn-primary { background: var(--accent); color: var(--on-accent); }
+
+.t-canli input[type=text], .t-canli input[type=email], .t-canli textarea, .t-canli select {
+  min-height: 48px; padding: 11px 16px; background: var(--card); color: var(--ink); border: var(--line);
+  border-radius: 18px; font-weight: 700; font-size: 16px; transition: box-shadow .2s var(--spring), transform .2s var(--spring);
+}
+.t-canli input[type=text]:focus, .t-canli input[type=email]:focus, .t-canli textarea:focus, .t-canli select:focus {
+  box-shadow: 4px 4px 0 var(--accent); transform: translate(-1px, -1px);
+}
+.t-canli input::placeholder, .t-canli textarea::placeholder { color: #766d8a; font-weight: 500; opacity: 1; }
+.t-canli select {
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%232d2440' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 20px 20px;
+}
+.t-canli textarea { border-radius: 22px; }
+.t-canli .form-group label { font-family: var(--display); font-weight: 500; font-size: 15.5px; }
+
+.t-canli .card {
+  padding: 26px 18px 24px; background: var(--card); border: 3px solid var(--ink); border-radius: 30px;
+  box-shadow: 6px 6px 0 #a78bfa; animation: canli-pop .5s var(--spring) both;
+}
+.t-canli .card h1 { font-weight: 700; font-size: 30px; text-shadow: 2.5px 2.5px 0 var(--pink); }
+.t-canli .card .lead { margin: 8px 0 20px; color: var(--muted); font-weight: 700; }
+.t-canli .criterion {
+  flex-wrap: wrap; padding: 10px 14px; background: var(--pink); border: 2px solid var(--ink); border-radius: 18px;
+}
+.t-canli .criterion:nth-child(6n+2) { background: #ffeaa0; }
+.t-canli .criterion:nth-child(6n+3) { background: var(--mint); }
+.t-canli .criterion:nth-child(6n+4) { background: var(--sky); }
+.t-canli .criterion:nth-child(6n+5) { background: var(--lilac); }
+.t-canli .criterion:nth-child(6n+6) { background: var(--peach); }
+.t-canli .criterion .cname { font-family: var(--display); font-weight: 600; font-size: 16px; }
+.t-canli .star-input { gap: 2px; padding: 3px 8px; background: var(--card); border: 2px solid var(--ink); border-radius: 999px; }
+.t-canli .star-input label { width: 34px; height: 34px; background: var(--ink); opacity: .2; transition: transform .25s var(--spring); }
+.t-canli .star-input label:hover, .t-canli .star-input label:hover ~ label, .t-canli .star-input input:checked ~ label { background: #ffb400; opacity: 1; }
+.t-canli .star-input label:hover { transform: scale(1.25) rotate(-10deg); }
+.t-canli .star-input input:focus-visible + label { background: var(--accent); opacity: 1; }
+
+.t-canli .alert { padding: 12px 16px; border: var(--line); border-radius: 18px; font-weight: 800; background: var(--sky); color: var(--ink); }
+.t-canli .alert-error { background: var(--pink); box-shadow: 3px 3px 0 #ff5a7a; }
+.t-canli .alert-success { background: var(--mint); box-shadow: 3px 3px 0 #5fd3a0; }
+.t-canli .alert-info { background: var(--sky); box-shadow: 3px 3px 0 #6db8f5; }
+.t-canli .thanks h1, .t-canli .thanks h2 { font-size: 28px; font-weight: 700; }
+.t-canli .thanks p { margin-top: 8px; color: var(--muted); font-weight: 700; }
+.t-canli .thanks .big { display: inline-block; animation: canli-bob 2s ease-in-out infinite; }
+.t-canli .thanks .btn { margin-top: 18px; }
+.t-canli .form-note { font-size: 13px; font-weight: 700; color: var(--muted); }
+.t-canli .form-note a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* ---------- 8. Arama ---------- */
+.t-canli .search-box { margin: 20px 4px 8px 0; gap: 10px; }
+.t-canli .search-box input[type=text] { border-radius: 999px; padding-left: 20px; }
+.t-canli .search-box .btn { padding: 10px 20px; }
+
+/* ---------- 9. Isletme + bilgilendirme ---------- */
+.t-canli .open-status {
+  padding: 6px 16px; border: var(--line); border-radius: 999px; background: var(--card); font-weight: 800; font-size: 13.5px;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.t-canli .open-status i { width: 11px; height: 11px; flex-basis: 11px; border: 2px solid var(--ink); }
+.t-canli .open-status.is-open { background: var(--mint); }
+.t-canli .open-status.is-open i { background: #1fbf75; animation: canli-pulse 1.6s ease-in-out infinite; }
+.t-canli .open-status.is-closed { background: var(--pink); }
+.t-canli .open-status.is-closed i { background: #ff4d6d; }
+.t-canli .info-page .hero { padding: 22px 8px 6px; }
+.t-canli .info-actions { margin-top: 22px; padding-right: 4px; }
+.t-canli .info-actions .btn { padding-left: 12px; padding-right: 12px; }
+.t-canli .info-section { margin-top: 34px; }
+.t-canli .info-section h2 {
+  display: inline-block; position: relative; z-index: 1; margin: 0 0 -12px 16px; padding: 4px 16px; background: var(--sun);
+  border: var(--line); border-radius: 999px; font-size: 17px; rotate: -2deg;
+}
+.t-canli .info-section:nth-of-type(3n+2) h2 { background: var(--pink); rotate: 1.5deg; }
+.t-canli .info-section:nth-of-type(3n+3) h2 { background: var(--sky); }
+.t-canli .info-panel {
+  margin-right: 4px; padding: 20px 16px 8px; background: var(--card); border: var(--line); border-radius: 24px;
+  box-shadow: 5px 5px 0 #ffc83d;
+}
+.t-canli .info-section:nth-of-type(3n+2) .info-panel { box-shadow: 5px 5px 0 #ff8fb8; }
+.t-canli .info-section:nth-of-type(3n+3) .info-panel { box-shadow: 5px 5px 0 #6db8f5; }
+.t-canli .info-line { padding: 12px 0; border-top: 2px dotted rgba(45, 36, 64, .28); }
+.t-canli .info-line:first-child { border-top: 0; }
+.t-canli .info-line span { color: var(--muted); font-weight: 700; font-size: 14.5px; }
+.t-canli .info-line b { font-weight: 800; }
+.t-canli .info-line b a { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2.5px; text-underline-offset: 3px; }
+.t-canli .info-line.today { margin: 4px -8px; padding: 10px 8px; background: #ffeaa0; border: 2px solid var(--ink); border-radius: 14px; }
+.t-canli .info-line.today + .info-line { border-top: 0; }
+.t-canli .info-line.today span { color: var(--ink); font-weight: 800; }
+.t-canli .wifi-pass { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14.5px; }
+.t-canli .copy-btn {
+  min-height: 40px; padding: 4px 14px; background: var(--mint); color: var(--ink); border: 2px solid var(--ink);
+  border-radius: 999px; box-shadow: 2px 2px 0 var(--ink); font-family: var(--display); font-weight: 600; font-size: 13.5px;
+  transition: transform .2s var(--spring), box-shadow .12s ease;
+}
+.t-canli .copy-btn:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+
+.t-canli .legal-page h1 { font-weight: 700; font-size: 32px; text-shadow: 2.5px 2.5px 0 var(--mint); }
+.t-canli .legal-page h2 { font-size: 20px; margin-bottom: 10px; padding-left: 14px; border-left: 8px solid var(--accent); border-radius: 6px; }
+.t-canli .legal-page section:nth-of-type(even) h2 { border-left-color: #6db8f5; }
+.t-canli .info-text {
+  margin-right: 4px; padding: 16px 18px 8px; background: var(--card); border: var(--line); border-radius: 22px;
+  box-shadow: 4px 4px 0 var(--lilac); line-height: 1.65;
+}
+
+/* ---------- 10. Alt bar: yuzen hap ---------- */
+.t-canli .bottombar {
+  left: 50%; right: auto; width: min(480px, calc(100% - 24px)); transform: translateX(-50%);
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px)); height: var(--bottombar-h); padding: 5px;
+  background: var(--card); border: var(--line); border-radius: 999px; box-shadow: 4px 4px 0 var(--ink);
+}
+.t-canli .bottombar a {
+  gap: 1px; border-radius: 999px; font-size: 11px; font-weight: 800; line-height: 1.2; color: var(--muted);
+  transition: background-color .2s ease, color .2s ease;
+}
+.t-canli .bottombar a svg { transition: transform .3s var(--spring); }
+.t-canli .bottombar a:hover svg { transform: translateY(-2px) scale(1.1); }
+.t-canli .bottombar a:active svg { transform: scale(.85); }
+.t-canli .bottombar a.active { background: var(--sun); color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+.t-canli .bottombar a.active svg { animation: canli-hop .6s var(--spring) both; }
+
+/* ---------- Genis ekran ---------- */
+@media (min-width: 760px) {
+  .t-canli { font-size: 16px; }
+  .t-canli .topbar .brand { font-size: 24px; }
+  .t-canli .hero { padding: 44px 8px 34px; }
+  .t-canli .hero .ornament::before { left: 18%; width: 44px; height: 44px; }
+  .t-canli .hero .ornament::after { right: 18%; width: 40px; height: 40px; }
+  .t-canli .cat-grid { gap: 26px 22px; }
+  .t-canli .cat-card .label-name { font-size: 19px; }
+  .t-canli .product-list { gap: 22px; }
+  .t-canli .chip-bar { padding-left: 4px; padding-right: 4px; }
+  .t-canli .gallery-wrap { margin-top: 20px; }
+  .t-canli .cta-row .btn { flex: 0 1 auto; }
+  .t-canli .card { padding: 32px 30px 28px; }
+}
+
+/* ---------- Hareket ---------- */
+@keyframes canli-pop {
+  0% { opacity: 0; transform: scale(.7); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes canli-rise {
+  0% { opacity: 0; transform: translateY(22px) scale(.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes canli-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes canli-wiggle {
+  0%, 82%, 100% { transform: rotate(0deg) scale(1); }
+  86% { transform: rotate(-9deg) scale(1.08); }
+  90% { transform: rotate(8deg) scale(1.08); }
+  94% { transform: rotate(-5deg) scale(1.03); }
+}
+@keyframes canli-hop {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-6px) scale(1.15); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes canli-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31, 191, 117, .55); }
+  50% { box-shadow: 0 0 0 6px rgba(31, 191, 117, 0); }
+}

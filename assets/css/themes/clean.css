@@ -1,0 +1,295 @@
+/* @theme
+   fonts: Inter:wght@400;500;600;700
+   theme-color: #ffffff
+   accents: #1f7a55
+*/
+
+/* =====================================================================
+   Clean — sade, ferah, notr. Beyaz zemin, bol bosluk, Inter.
+   Vurgu rengi YALNIZCA: fiyat etiketi, aktif sekme, birincil dugme.
+   Vurgu her zaman dolgu/cizgi olarak kullanilir (metin rengi olarak degil),
+   boylece cok acik ya da cok koyu bir renk secilse de okunurluk bozulmaz.
+   ===================================================================== */
+
+/* ---------- 1. Kok ---------- */
+.t-clean {
+  --accent: #1f7a55;
+  --accent-rgb: 31, 122, 85;
+  --on-accent: #ffffff;
+
+  --bg: #ffffff;
+  --ink: #16161a;
+  --text: #2c2c33;
+  --muted: #66666e;
+  --line: #ececee;
+  --line-strong: #d9d9de;
+  --soft: #f5f5f6;
+  --soft-2: #ededf0;
+  --r-lg: 16px;
+  --r-md: 12px;
+  --r-sm: 8px;
+  --edge: inset 0 0 0 1px rgba(0, 0, 0, .1);
+
+  --topbar-h: 56px;
+  --bottombar-h: 62px;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.006em;
+}
+body.t-clean { background: var(--bg); }
+.t-clean h1, .t-clean h2, .t-clean h3 { color: var(--ink); font-weight: 700; letter-spacing: -0.022em; line-height: 1.2; }
+.t-clean a:focus-visible, .t-clean button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.t-clean .ornament, .t-clean .hero .divider, .t-clean .cat-card .idx { display: none; }
+.t-clean .page { padding-top: 0; padding-bottom: 40px; }
+
+/* ---------- 2. Ust bar ---------- */
+.t-clean .topbar { background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); color: var(--ink); padding: 0 6px; }
+.t-clean .topbar .brand { font-size: 15px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+.t-clean .topbar .brand img { height: 32px; }
+.t-clean .icon-btn { width: 42px; height: 42px; border-radius: 50%; color: var(--ink); transition: background-color .15s ease; }
+.t-clean .icon-btn svg { width: 19px; height: 19px; stroke-width: 1.8; }
+.t-clean .icon-btn:active { background: var(--soft-2); }
+.t-clean .lang-btn { font-size: 12.5px; font-weight: 600; letter-spacing: .04em; color: var(--muted); }
+
+/* ---------- 3. Kampanya seridi ---------- */
+.t-clean .promo-band { background: var(--soft); color: var(--text); font-size: 13px; min-height: 42px; padding: 0 2px 0 16px; }
+.t-clean .promo-band-item b { font-weight: 600; color: var(--ink); }
+.t-clean .promo-band-item span { color: var(--muted); }
+.t-clean .promo-band-item span::before { content: "·"; margin: 0 6px 0 2px; }
+.t-clean .promo-band-close { width: 40px; height: 40px; border-radius: 50%; color: var(--muted); }
+.t-clean .promo-band-close svg { width: 14px; height: 14px; }
+
+/* ---------- 3b. Kampanya popup'i ---------- */
+.t-clean .promo { background: rgba(22, 22, 26, .5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); padding: 24px; }
+.t-clean .promo-box { background: var(--bg); color: var(--text); border-radius: 20px; box-shadow: 0 24px 60px rgba(0, 0, 0, .22); animation: clean-pop .28s cubic-bezier(.2, .8, .3, 1) both; }
+.t-clean .promo-text { padding: 24px 24px 28px; text-align: left; }
+.t-clean .promo-text h2 { font-size: 21px; line-height: 1.25; }
+.t-clean .promo-text p { color: var(--muted); font-size: 15px; margin-top: 8px; }
+.t-clean .promo-close, .t-clean .promo-nav, .t-clean .gallery-nav { width: 40px; height: 40px; background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 4px 14px rgba(0, 0, 0, .12); }
+.t-clean .promo-close { top: 12px; right: 12px; }
+.t-clean .promo-close svg { width: 16px; height: 16px; }
+.t-clean .promo-dots { color: var(--ink); padding: 0 0 18px; gap: 5px; }
+.t-clean .promo-dots i { width: 6px; height: 6px; border-radius: 3px; opacity: .2; transition: width .2s ease, opacity .2s ease; }
+.t-clean .promo-dots i.active { width: 18px; opacity: 1; }
+
+/* ---------- 4. Ana sayfa ---------- */
+.t-clean .hero { text-align: left; padding: 44px 0 36px; }
+.t-clean .hero .logo-big { height: 64px; margin: 0 0 22px; }
+.t-clean .hero h1 { font-size: 34px; letter-spacing: -0.035em; line-height: 1.08; }
+.t-clean .hero p { margin-top: 10px; font-size: 16px; color: var(--muted); }
+.t-clean .promo-reopen { margin-top: 22px; min-height: 40px; padding: 8px 16px; font-size: 13.5px; border-radius: 999px; }
+
+.t-clean .cat-grid { gap: 14px; }
+.t-clean .cat-card { aspect-ratio: auto; overflow: visible; display: flex; flex-direction: column; padding: 8px 8px 12px; background: var(--bg); border: 1px solid var(--line-strong); border-radius: 20px; }
+.t-clean .cat-card img, .t-clean .cat-card .placeholder { aspect-ratio: 1 / 1; height: auto; border-radius: var(--r-lg); background: var(--soft); transition: transform .25s ease, opacity .2s ease; }
+.t-clean .cat-card .placeholder { color: #b4b4bc; font-size: 44px; font-weight: 600; letter-spacing: -0.03em; }
+.t-clean .cat-card .label { position: static; padding: 11px 4px 0; text-align: left; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.t-clean .cat-card .label-name { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: -0.012em; min-width: 0; overflow-wrap: anywhere; line-height: 1.3; }
+.t-clean .cat-card .count { flex: 0 0 auto; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.t-clean .cat-card:active img, .t-clean .cat-card:active .placeholder { transform: scale(.98); opacity: .9; }
+
+.t-clean .section-title { margin: 56px 0 4px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.t-clean .section-title h2 { font-size: 20px; }
+.t-clean .section-title span { font-size: 13px; color: var(--muted); }
+
+/* ---------- 5. Kategori sayfasi ---------- */
+.t-clean .chip-bar-wrap { background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.t-clean .chip-bar { gap: 22px; padding: 0 16px; }
+.t-clean .chip { position: relative; display: inline-flex; align-items: center; height: 46px; font-size: 14px; font-weight: 500; color: var(--muted); transition: color .15s ease; }
+.t-clean .chip::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--accent); box-shadow: var(--edge); transform: scaleX(0); transition: transform .2s ease; }
+.t-clean .chip.active { color: var(--ink); font-weight: 600; }
+.t-clean .chip.active::after { transform: scaleX(1); }
+
+.t-clean .cat-head { padding: 36px 0 4px; }
+.t-clean .cat-head h1 { font-size: 30px; letter-spacing: -0.032em; line-height: 1.1; }
+.t-clean .cat-head p { margin-top: 8px; color: var(--muted); font-size: 15px; }
+
+.t-clean .filter-bar { margin: 20px 0 6px; gap: 8px; }
+.t-clean .filter-chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; font-size: 13.5px; font-weight: 500; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 999px; transition: background-color .15s ease, border-color .15s ease; }
+.t-clean .filter-chip.active, .t-clean .filter-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.t-clean .filter-clear { display: inline-flex; align-items: center; min-height: 40px; padding: 0 6px; font-size: 13.5px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Urun satiri: metin solda, fotograf sagda, kutusuz ---------- */
+.t-clean .product-list { gap: 12px; margin-top: 12px; }
+.t-clean .product-row { grid-template-columns: minmax(0, 1fr) 104px; gap: 16px; align-items: start; padding: 16px; background: var(--bg); border: 1px solid var(--line-strong); border-radius: 18px; transition: opacity .15s ease, border-color .15s ease; }
+.t-clean .product-row .thumb { order: 2; width: 104px; height: 104px; border-radius: var(--r-md); background: var(--soft); }
+.t-clean .product-row .info { order: 1; }
+.t-clean .product-row.no-photo { grid-template-columns: minmax(0, 1fr); }
+.t-clean .product-row.no-photo .thumb { display: none; }
+.t-clean .product-row .name { font-size: 16px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; }
+.t-clean .product-row .desc { margin-top: 4px; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.t-clean .product-row .row-cat { font-size: 12px; color: var(--muted); }
+.t-clean .product-row .meta { margin-top: 12px; gap: 6px; }
+.t-clean .product-row:active { opacity: .7; }
+
+/* Fiyat: vurgu dolgulu kucuk etiket (metin --on-accent) */
+.t-clean .price { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--accent); color: var(--on-accent); box-shadow: var(--edge); font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.t-clean .product-row .meta-price { margin-right: 4px; }
+.t-clean .row-head .head-price, .t-clean .row-head .leader { display: none; }
+
+/* Etiketler: notr, sessiz */
+.t-clean .tag { padding: 3px 8px; border-radius: 6px; background: var(--soft); color: #45454d; font-size: 12px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+.t-clean .tag.badge-featured { background: none; box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); font-weight: 600; }
+.t-clean .tag.badge-soldout { background: var(--ink); color: #fff; font-weight: 600; }
+.t-clean .tag.tag-allergen { background: none; box-shadow: inset 0 0 0 1px var(--line-strong); }
+
+.t-clean .product-row.sold-out .name { color: var(--muted); }
+.t-clean .product-row.sold-out .thumb img { filter: grayscale(1); opacity: .55; }
+.t-clean .product-row.sold-out .price { background: var(--soft-2); color: var(--muted); box-shadow: none; text-decoration: line-through; }
+
+.t-clean .empty { padding: 72px 16px; color: var(--muted); font-size: 15px; }
+.t-clean .empty svg { color: #b4b4bc; margin-bottom: 14px; }
+
+/* ---------- 6. Urun sayfasi ---------- */
+.t-clean .gallery-wrap { background: var(--soft); }
+.t-clean .gallery .no-image { background: var(--soft); color: #a0a0a9; font-size: 14px; padding-bottom: 20px; }
+.t-clean .gallery-dots { bottom: 34px; color: #fff; gap: 5px; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35)); }
+.t-clean .gallery-dots i { width: 6px; height: 6px; border-radius: 3px; opacity: .6; transition: width .2s ease, opacity .2s ease; }
+.t-clean .gallery-dots i.active { width: 18px; opacity: 1; }
+.t-clean .gallery-counter { top: 14px; right: 14px; padding: 3px 10px; border-radius: 999px; background: rgba(22, 22, 26, .6); color: #fff; font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.t-clean .product-detail { margin: -22px -16px 0; padding: 26px 16px 8px; background: var(--bg); border-radius: 22px 22px 0 0; }
+.t-clean .product-detail .cat-link { display: inline-flex; align-items: center; min-height: 40px; margin: -10px 0 0; font-size: 13px; font-weight: 500; color: var(--muted); }
+.t-clean .product-detail .cat-link::before { content: ""; width: 7px; height: 7px; margin-right: 8px; border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
+.t-clean .product-detail .head { align-items: flex-start; gap: 16px; }
+.t-clean .product-detail .head h1 { font-size: 27px; letter-spacing: -0.03em; line-height: 1.12; min-width: 0; overflow-wrap: anywhere; }
+.t-clean .product-detail .head .price { flex: 0 0 auto; margin-top: 2px; padding: 5px 13px; font-size: 15px; }
+.t-clean .rating-line { font-size: 13.5px; color: var(--muted); }
+.t-clean .rating-line b { color: var(--ink); font-weight: 600; }
+.t-clean .star { background: #d4d4d9; opacity: 1; }
+.t-clean .star.full { background: var(--ink); }
+.t-clean .star.half { background: linear-gradient(90deg, var(--ink) 50%, #d4d4d9 50%); }
+.t-clean .product-detail .tags { margin-top: 16px; }
+.t-clean .product-detail .tags .tag { padding: 5px 10px; font-size: 13px; }
+.t-clean .product-facts { margin-top: 16px; gap: 6px 18px; font-size: 13.5px; color: var(--muted); }
+.t-clean .soldout-note { margin-top: 18px; padding: 13px 15px; border-radius: var(--r-md); background: var(--soft); color: var(--ink); font-size: 14px; font-weight: 500; }
+.t-clean .product-detail .desc { margin-top: 20px; font-size: 16px; line-height: 1.6; color: var(--text); }
+.t-clean .product-detail .details { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.t-clean .product-detail .details h3 { font-size: 15px; font-weight: 600; letter-spacing: -0.012em; margin-bottom: 8px; }
+.t-clean .product-detail .details p { font-size: 15px; color: var(--text); }
+.t-clean .variant-line { padding: 13px 0; align-items: center; border-bottom: 1px solid var(--line); font-size: 15px; }
+.t-clean .variants .variant-line:last-child { border-bottom: 0; padding-bottom: 0; }
+.t-clean .variants h3 { margin-bottom: 2px; }
+.t-clean .allergens .tags { margin-top: 10px; }
+.t-clean .product-detail .allergen-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.t-clean .cta-row { margin-top: 36px; gap: 10px; }
+.t-clean .cta-row .btn { flex: 1 1 100%; }
+
+/* ---------- 7. Dugmeler, formlar ---------- */
+.t-clean .btn { min-height: 50px; padding: 12px 20px; border: 0; border-radius: var(--r-md); background: var(--bg); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-strong); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; text-align: center; transition: transform .12s ease, opacity .15s ease, background-color .15s ease; }
+.t-clean .btn:active { transform: scale(.985); opacity: .85; }
+.t-clean .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: var(--edge); }
+.t-clean .btn svg { width: 17px; height: 17px; }
+
+.t-clean input[type=text], .t-clean input[type=email], .t-clean textarea, .t-clean select { min-height: 50px; padding: 13px 14px; border: 1px solid transparent; border-radius: var(--r-md); background: var(--soft); color: var(--ink); font-size: 16px; transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.t-clean input[type=text]::placeholder, .t-clean input[type=email]::placeholder, .t-clean textarea::placeholder { color: #8b8b94; }
+.t-clean input[type=text]:focus, .t-clean input[type=email]:focus, .t-clean textarea:focus, .t-clean select:focus { background: var(--bg); border-color: var(--ink); box-shadow: 0 0 0 3px rgba(22, 22, 26, .08); }
+.t-clean select { padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2366666e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px; }
+.t-clean textarea { min-height: 132px; line-height: 1.5; }
+.t-clean .form-group { margin-bottom: 20px; }
+.t-clean .form-group label { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+
+.t-clean .card { padding: 36px 0 0; }
+.t-clean .card h1 { font-size: 28px; letter-spacing: -0.03em; }
+.t-clean .card .lead { margin: 10px 0 26px; color: var(--muted); font-size: 15px; }
+.t-clean .criteria-list { gap: 0; margin-bottom: 28px; border-top: 1px solid var(--line); }
+.t-clean .criterion { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.t-clean .criterion .cname { font-size: 15px; font-weight: 500; color: var(--ink); min-width: 0; }
+.t-clean .star-input { gap: 2px; flex: 0 0 auto; }
+.t-clean .star-input label { width: 34px; height: 40px; background: var(--ink); opacity: .16; transition: opacity .12s ease; }
+.t-clean .star-input label:hover, .t-clean .star-input label:hover ~ label, .t-clean .star-input input:checked ~ label { opacity: 1; }
+.t-clean .star-input input:focus-visible + label { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.t-clean .alert { border: 0; border-radius: var(--r-md); padding: 13px 15px; margin-bottom: 20px; font-size: 14px; font-weight: 500; background: var(--soft); color: var(--ink); }
+.t-clean .alert-error { background: #fdf0ee; color: #9f1f12; }
+.t-clean .alert-success { background: #edf7f0; color: #17613a; }
+.t-clean .alert-info { background: var(--soft); color: var(--ink); }
+.t-clean .thanks { padding: 72px 8px 40px; }
+.t-clean .thanks .big { font-size: 48px; line-height: 1; margin-bottom: 18px; }
+.t-clean .thanks h1, .t-clean .thanks h2 { font-size: 26px; letter-spacing: -0.03em; }
+.t-clean .thanks p { margin: 10px auto 26px; max-width: 34ch; color: var(--muted); }
+.t-clean .form-note { margin-top: 18px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.t-clean .form-note a { color: var(--ink); text-underline-offset: 3px; }
+
+/* ---------- 8. Arama ---------- */
+.t-clean .search-box { margin: 24px 0 0; gap: 8px; }
+.t-clean .search-box .btn { flex: 0 0 auto; padding: 12px 22px; }
+.t-clean .search-box + .section-title { margin-top: 36px; }
+
+/* ---------- 9. Isletme ve bilgilendirme ---------- */
+.t-clean .info-page { padding-top: 32px; }
+.t-clean .info-top { text-align: left; padding-top: 0; }
+.t-clean .open-status { padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--soft); color: var(--ink); }
+.t-clean .open-status.is-open { background: #edf7f0; color: #17613a; }
+.t-clean .open-status.is-closed { background: #fdf0ee; color: #9f1f12; }
+.t-clean .info-page .hero { padding: 20px 0 0; }
+.t-clean .info-actions { margin-top: 28px; gap: 10px; }
+.t-clean .info-section { margin-top: 48px; }
+.t-clean .info-section h2 { font-size: 19px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.t-clean .info-line { padding: 14px 0; min-height: 52px; border-bottom: 1px solid var(--line); font-size: 15px; }
+.t-clean .info-line span { color: var(--muted); }
+.t-clean .info-line b { font-weight: 500; color: var(--ink); }
+.t-clean .info-line b a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.t-clean .info-line.today span, .t-clean .info-line.today b { color: var(--ink); font-weight: 600; }
+.t-clean .info-line.today span::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: var(--ink); vertical-align: 2px; }
+.t-clean .wifi-pass { font-variant-numeric: tabular-nums; letter-spacing: .01em; }
+.t-clean .copy-btn { min-height: 40px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--soft); color: var(--ink); font-size: 13px; font-weight: 600; }
+.t-clean .copy-btn:active { background: var(--soft-2); }
+
+.t-clean .legal-page { padding: 36px 0 16px; }
+.t-clean .legal-page h1 { font-size: 28px; letter-spacing: -0.03em; }
+.t-clean .legal-page section { margin-top: 36px; }
+.t-clean .legal-page h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 10px; }
+.t-clean .info-text { font-size: 15px; line-height: 1.7; color: #45454d; }
+.t-clean .info-text p { margin-bottom: 12px; }
+
+/* ---------- 10. Alt bar ---------- */
+.t-clean .bottombar { background: rgba(255, 255, 255, .96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+.t-clean .bottombar a { position: relative; gap: 3px; font-size: 11px; font-weight: 500; color: #7a7a83; letter-spacing: 0; }
+.t-clean .bottombar a svg { width: 21px; height: 21px; stroke-width: 1.7; }
+.t-clean .bottombar a.active { color: var(--ink); font-weight: 600; }
+.t-clean .bottombar a.active::before { content: ""; position: absolute; top: -1px; left: 50%; width: 28px; height: 3px; margin-left: -14px; border-radius: 0 0 3px 3px; background: var(--accent); box-shadow: var(--edge); }
+
+/* ---------- Hover (yalnizca isaretci cihazlar) ---------- */
+@media (hover: hover) {
+  .t-clean .icon-btn:hover, .t-clean .promo-band-close:hover { background: var(--soft); }
+  .t-clean .promo-close:hover, .t-clean .promo-nav:hover, .t-clean .gallery-nav:hover { background: var(--soft); }
+  .t-clean .chip:hover { color: var(--ink); }
+  .t-clean .filter-chip:hover { border-color: var(--ink); }
+  .t-clean .cat-card:hover img, .t-clean .cat-card:hover .placeholder { opacity: .88; }
+  .t-clean .product-row:hover .name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .t-clean .btn:hover { opacity: .9; }
+  .t-clean .copy-btn:hover { background: var(--soft-2); }
+}
+
+/* ---------- Genis ekran ---------- */
+@media (min-width: 760px) {
+  .t-clean { --topbar-h: 64px; }
+  .t-clean .hero { padding: 72px 0 48px; }
+  .t-clean .hero h1 { font-size: 48px; }
+  .t-clean .hero p { font-size: 18px; }
+  .t-clean .cat-grid { gap: 20px; }
+  .t-clean .section-title { margin-top: 80px; }
+  .t-clean .product-list { column-gap: 16px; }
+  .t-clean .chip-bar { padding: 0; gap: 28px; }
+  .t-clean .cat-head { padding-top: 48px; }
+  .t-clean .cat-head h1 { font-size: 38px; }
+  .t-clean .gallery-wrap { border-radius: 20px; margin-top: 24px; }
+  .t-clean .gallery-dots { bottom: 14px; }
+  .t-clean .product-detail { margin: 0 auto; padding: 32px 0 8px; border-radius: 0; max-width: 680px; }
+  .t-clean .product-detail .head h1 { font-size: 34px; }
+  .t-clean .cta-row .btn { flex: 1 1 0; }
+  .t-clean .card { padding-top: 56px; }
+  .t-clean .info-page { padding-top: 56px; }
+  .t-clean .legal-page { padding-top: 56px; }
+  .t-clean .search-box { max-width: 560px; margin-top: 40px; }
+}
+
+@keyframes clean-pop {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
