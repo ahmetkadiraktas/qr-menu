@@ -255,7 +255,7 @@ qr-menu/
 - Yedek geri yüklemede zip içeriği beyaz listeyle süzülür; boyut ve dosya sayısı sınırlıdır.
 - Veritabanı dosyasında yönetici şifresinin yalnızca hash'i tutulur; yedeklerde şifre bulunmaz.
 
-Bir açık bulursan lütfen herkese açık issue yerine önce e‑posta ile bildir.
+Bir açık bulursan lütfen herkese açık issue yerine önce e‑posta ile bildir: **ahmetkadiraktas7@gmail.com**
 
 ---
 
@@ -264,3 +264,9 @@ Bir açık bulursan lütfen herkese açık issue yerine önce e‑posta ile bild
 Hata bildirimi ve öneriler için **Issues**, düzeltmeler için **Pull Request** açabilirsin. Tasarım felsefesi basit: *kurulumu zorlaştıran hiçbir bağımlılık eklenmez.*
 
 [MIT Lisansı](LICENSE) — dilediğin gibi kullan, değiştir, kendi restoranında ya da müşterilerin için yayınla.
+
+---
+
+## İletişim
+
+Görüş, öneri ya da kurulumda destek için: **[ahmetkadiraktas7@gmail.com](mailto:ahmetkadiraktas7@gmail.com)**

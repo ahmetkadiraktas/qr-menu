@@ -206,3 +206,8 @@ Giriş ekranı "çok fazla deneme" diyor
 İngilizce metinler görünmüyor
    Ürün/kategori formlarındaki EN alanlarını doldurun; boş olanlar Türkçe görünür. Sabit metinler
    Ayarlar > Genel ve Bilgilendirme sekmelerindeki EN alanlarından girilir.
+
+
+İLETİŞİM
+--------
+Görüş, öneri ya da kurulumda destek için: ahmetkadiraktas7@gmail.com
