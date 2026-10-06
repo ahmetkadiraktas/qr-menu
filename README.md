@@ -11,7 +11,7 @@ Zip'i cPanel'e at, aç, `install.php`'yi çalıştır — 5 dakikada QR menün h
 ![No build](https://img.shields.io/badge/build%20step-yok-success)
 ![License](https://img.shields.io/badge/lisans-MIT-blue)
 
-<img src="docs/screenshots/theme-klasik.jpg" alt="Klasik tema: ana sayfa, kategori ve ürün sayfası" width="900">
+<img src="docs/screenshots/theme-klasik.jpg" alt="Klasik tema: ana sayfa, kategori ve ürün sayfası" width="600">
 
 </div>
 
@@ -28,7 +28,6 @@ Zip'i cPanel'e at, aç, `install.php`'yi çalıştır — 5 dakikada QR menün h
 - [Temalar](#temalar)
 - [Kurulum (5 dakika)](#kurulum-5-dakika)
 - [Kullanım](#kullanım)
-- [Yönetim paneli](#yönetim-paneli)
 - [Teknik ayrıntılar](#teknik-ayrıntılar)
 - [Güvenlik](#güvenlik)
 - [Katkı ve lisans](#katkı-ve-lisans)
@@ -75,7 +74,7 @@ Kısacası: **sürükle‑bırak, tak‑çalıştır.** cPanel'de "Upload" ve "E
 - **Fiyatları gizle** seçeneği (fiyatsız vitrin menü).
 
 <div align="center">
-<img src="docs/screenshots/flow-customer.jpg" alt="Kampanya popup'ı, bilgi sayfası ve restoran değerlendirme formu" width="900">
+<img src="docs/screenshots/flow-customer.jpg" alt="Kampanya popup'ı, bilgi sayfası ve restoran değerlendirme formu" width="600">
 <br><sub>Kampanya popup'ı · Bilgi sayfası · Restoran değerlendirme formu</sub>
 </div>
 
@@ -91,11 +90,6 @@ Kısacası: **sürükle‑bırak, tak‑çalıştır.** cPanel'de "Upload" ve "E
 - **Tema** — 6 hazır tema, tek tıkla değişir, anında önizleme.
 - **Yedek** — tüm veri + resimler tek zip; kurulum ekranından geri yükleme.
 - **Şifre sıfırlama** — paneli açamıyorsan `data/reset.key` dosyasıyla şifreni yenile (ürünler korunur).
-
-<div align="center">
-<img src="docs/screenshots/admin-menu-cat.jpg" alt="Admin: kategori içindeki ürün listesi" width="900">
-<br><sub>Menü yönetimi — ürünler kartlar halinde, ⋮ menüsünden düzenle / tükendi / sil</sub>
-</div>
 
 ---
 
@@ -113,27 +107,22 @@ Tema, **Ayarlar → Tema** sekmesinden tek tıkla seçilir. Her tema aynı içer
 | **Art Deco** | 1920'lerin lüks ve simetrik dili: zümrüt zemin, altın çizgiler, yelpaze ve basamak motifleri. |
 
 ### Clean
-<img src="docs/screenshots/theme-clean.jpg" alt="Clean tema" width="900">
+<img src="docs/screenshots/theme-clean.jpg" alt="Clean tema" width="480">
 
 ### Dark
-<img src="docs/screenshots/theme-dark.jpg" alt="Dark tema" width="900">
+<img src="docs/screenshots/theme-dark.jpg" alt="Dark tema" width="480">
 
 ### Klasik
-<img src="docs/screenshots/theme-klasik.jpg" alt="Klasik tema" width="900">
+<img src="docs/screenshots/theme-klasik.jpg" alt="Klasik tema" width="480">
 
 ### Bauhaus
-<img src="docs/screenshots/theme-bauhaus.jpg" alt="Bauhaus tema" width="900">
+<img src="docs/screenshots/theme-bauhaus.jpg" alt="Bauhaus tema" width="480">
 
 ### Canlı
-<img src="docs/screenshots/theme-canli.jpg" alt="Canlı tema" width="900">
+<img src="docs/screenshots/theme-canli.jpg" alt="Canlı tema" width="480">
 
 ### Art Deco
-<img src="docs/screenshots/theme-artdeco.jpg" alt="Art Deco tema" width="900">
-
-<div align="center">
-<img src="docs/screenshots/admin-tema.jpg" alt="Admin: tema seçimi" width="900">
-<br><sub>Ayarlar → Tema: kartlardan birini seç, kaydet.</sub>
-</div>
+<img src="docs/screenshots/theme-artdeco.jpg" alt="Art Deco tema" width="480">
 
 ---
 
@@ -193,24 +182,6 @@ php -S localhost:8080
 | QR kodu bas | Admin → **QR Kod** → PNG/SVG indir ya da yazdır |
 | Yedek al / şifre değiştir | Admin → **Ayarlar → Güvenlik ve Yedek** |
 | Yorumları oku | Admin → **Yorumlar** (okunmamış sayısı menüde görünür) |
-
----
-
-## Yönetim paneli
-
-<div align="center">
-<img src="docs/screenshots/admin-dashboard.jpg" alt="Genel bakış" width="900">
-<br><sub>Genel Bakış — kriter ortalamaları, en beğenilen ürünler, son yorumlar</sub>
-<br><br>
-<img src="docs/screenshots/admin-istatistik.jpg" alt="İstatistik" width="900">
-<br><sub>İstatistik — günlük ziyaretçi grafiği, en çok görüntülenen ürün ve kategoriler</sub>
-<br><br>
-<img src="docs/screenshots/admin-yorumlar.jpg" alt="Yorumlar" width="900">
-<br><sub>Yorumlar — restoran yorumları ve ürün puanları tek sayfada</sub>
-<br><br>
-<img src="docs/screenshots/flow-rating.jpg" alt="Ürün puanlama kutusu" width="390">
-<br><sub>Müşteri tarafında her ürünün altındaki puan kutusu</sub>
-</div>
 
 ---
 
